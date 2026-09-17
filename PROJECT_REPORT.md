@@ -2,197 +2,174 @@
 
 # HOTEL MANAGEMENT SYSTEM
 
-**A Desktop GUI-Based Java Application Submitted for the VITyarthi "Build Your Own Project" Evaluation**
-
+A Desktop GUI-Based Java ApplicationSubmitted for the VITyarthi "Build Your Own Project" Evaluation.
 ---
 
-## 1. COVER PAGE
+## 1. Cover Page
 
-* **Project Title**: Hotel Management System
-* **Course/Program**: B.Tech Computer Science / Software Engineering (VITyarthi Project Evaluation)
-* **Domain**: Software Engineering & GUI Application Development
-* **Implementation Language**: Java (JDK 11+)
-* **GUI Framework**: Java Swing
-* **Architecture**: 4-Layer Modular Architecture (GUI, Manager, Model, Storage)
-* **Persistence Strategy**: Binary File Serialization (`data/*.dat`)
-* **Evaluation Date**: September 2026
-
+Project Title: Hotel Management System
+Course/Program: B.Tech Computer Science / Software Engineering (VITyarthiProject Evaluation)
+Domain: Software Engineering & GUI Application Development
+Implementation Language: Java (JDK 11+)
+GUI Framework: Java Swing
+Architecture: 4-Layer Modular Architecture with Binary File Serialization Storage
+Evaluation Date: Sept 2026.
 ---
 
-## 2. INTRODUCTION
 
-The **Hotel Management System** is a complete, modular desktop application designed to automate day-to-day administrative and front-desk hotel operations. Developed using Object-Oriented Programming (OOP) principles in Java and utilizing the Java Swing graphical toolkit, the system equips front-desk staff with an interactive interface for guest registrations, room inventory control, reservation booking with double-booking overlap validation, itemized invoice generation with 12% GST tax computation, payment settlement recording, and real-time operational reporting.
 
+## 2. Introduction
+
+I am presenting my solution to an hotel management system, which provides an end-to-end automation for daily administrative and front-desk hotel processes. Built using Object Oriented Programming (OOP) paradigms using Java language and Java Swing Graphical Toolkit. Front desk workers are rovided an intuitive software interface for managing registrations, room inventory process, resrvation booking with overlap validation, itmized invoice with tax calculations andpayment tracking.
 ---
 
-## 3. PROBLEM STATEMENT
+## 3. Problem Statement
 
-Manual hotel administration relying on paper logbooks or loose spreadsheet files suffers from severe operational vulnerabilities:
-1. **Double-Booking Errors**: Assigning the same room to multiple guests for overlapping date ranges due to lack of automated date interval checking.
-2. **Billing & Tax Miscalculations**: Errors in calculating stay durations, missing itemized additional service charges (e.g., room service, laundry, spa), or incorrect tax application.
-3. **Data Inconsistency & Record Loss**: Fragmented record-keeping leading to data corruption or accidental loss upon system restart.
-4. **Slow Front-Desk Workflow**: Inability to quickly query guest records, perform rapid check-in/check-out state transitions, or monitor real-time hotel occupancy statistics.
+Hotels face issues due to manual administration using paperlogbooks or spreadsheet files, such as:
+1. Double-booking of same rooms for overlapping intervals when manual date comparisons are made within that.
+2. Billing and taxation errors while calculating stays, missing additional temized charges
+3. Data corruption or lost records when saving in fragmented ways across systems
+4. Inefficient front-des operations due to lack of instant filtering/search facilities
 
-The **Hotel Management System** addresses these problems through automated date validation, strict input regex checks, itemized billing, local file persistence, and real-time analytical reporting.
-
+These issues are addressed by the Hotel Management System through the use of automated field validations, itemized billing, file storage system and analytical reporting.
 ---
 
-## 4. FUNCTIONAL REQUIREMENTS
+## 4. Functional Requirements
 
-The application strictly implements three major functional modules:
+The application enforces strict set of 3 majormodules that have beenimplemented:
 
 ### Module 1: Guest Management
-* **Guest Registration**: Add guest with auto-generated unique ID (`GST-1001`).
-* **Regex Input Validation**: Validates phone numbers (10–12 digits) and email formatting.
-* **Search & Filter**: Real-time multi-field search across guest IDs, names, phones, and emails.
-* **Profile Controls**: Update guest details and delete profiles with confirmation dialogs.
+Guest Registration
+Regex Input validation
+Search / Filter feature
+Edit / Delete capabilities.
 
-### Module 2: Room & Reservation Management
-* **Room Inventory**: Manage room numbers, types (Single, Double, Deluxe, Suite), pricing, capacity, and operational status (`AVAILABLE`, `RESERVED`, `OCCUPIED`, `MAINTENANCE`).
-* **Reservation Booking**: Connect Guest -> Room -> Check-In Date -> Check-Out Date.
-* **Double-Booking Prevention**: Date interval overlap validation prohibiting double-booking of active reservations.
-* **Lifecycle State Machine**: Transition reservation and room statuses through Check-In, Check-Out, and Cancellation workflows.
+### Module 2: Room and Reservation Management
 
-### Module 3: Billing & Reporting
-* **Itemized Invoicing**: Automated bill generation upon checkout combining room charges (`Nights * Price/Night`) and itemized additional service charges (Food, Laundry, Spa).
-* **Tax Calculation**: Configurable 12% GST tax rate application (`Subtotal * 0.12`) and Grand Total calculation (`Subtotal + Tax`).
-* **Payment Settlement**: Record payment mode (Cash, Credit Card, UPI) and update invoice status to `PAID`.
-* **Analytical Dashboard**: Visual dashboard cards for total rooms, occupancy percentage, active reservations, total revenue collected, and pending receivables.
-
+Room Inventory: Number, type, price, occupants, operational status
+Booking Reservations: Connecting Guest -> Room -> Check-in and Check-out dates. Restriction to double-booking using date-interval algorithm to reject overlapping reservation in it.
+Room Lifecycle Management: Transitioning between states like   Available', 'Occupied', 'Reserved' through check-in, check-out and cancellation process.
+### Module 3: Billing and Reporting
+Itemized Invoicing: Automatically generating invoices with room charges (Nights Price/Night) and itemized additional charges in it as well (FoodLaundry,Spa), applying 12% tax and generating a grand total
+Payment Settlement: Tracking payment details for each invoice, such as Cash, Credit Card or UPI. Marking invoice status as PAID.
+Operational Analytics Dashboard: Showing cards for number of rooms, occupancy percentage, active reservations, collected receivables and pending invoices.
 ---
-
-## 5. NON-FUNCTIONAL REQUIREMENTS
-
-1. **Usability**: Consistent desktop Swing GUI layout with intuitive side menu navigation, form validation feedback, and confirmation dialogs for destructive actions.
-2. **Reliability**: Fault-tolerant exception handling preventing system crashes during invalid user input or storage file read/write operations.
-3. **Maintainability**: Clean 4-layer architecture (`gui`, `manager`, `model`, `storage`, `util`) enforcing clear separation of concerns.
-4. **Performance**: Instantaneous response time (< 50 ms) for local file queries and mathematical rule evaluations.
-5. **Resource Efficiency**: Zero external heavy framework dependencies; operates lightweight using standard JDK libraries.
-6. **Error Handling**: Friendly error dialogs (`JOptionPane`) informing users of specific validation errors.
-
+## 5. Non-Functional Requirements
+1. Usability
+Consistent layout for desktop Swing GUI, with intuitive side pane navigation, form field validations, confirmation prompts for destructive operations.
+2. Reliability
+Proper exception handling to not crash the application when invalid user inputs or file read/write failures occur.
+3. Maintainability
+Clear 4-layer architecture (`gui`, `manager`, `model`, `storage`, `util`) following principle of separation of concerns.
+4. Performance
+Responsive performance for local file queries and mathematical rule evaluations (~< 50ms).
+5. Resource Constraints
+No external heavy framework dependencies, uses light-weight JDK libraries.
+6. Error Handling
+Friendly error dialogues informing the user of invalid operations.....
 ---
-
-## 6. SYSTEM ARCHITECTURE
-
-The application uses a 4-layer architecture:
-
+## 6. System Architecture
+The Hotel Management application follows a 4 layer architecure as depicted in this diagram:
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                 GUI Layer (Java Swing)                      │
+
+│         GUI Layer (Java Swing)           │
 │ (MainFrame, DashboardPanel, GuestPanel, RoomReservationPanel│
-│             BillingPanel, ReportPanel, UITheme)             │
+│       BillingPanel, ReportPanel, UITheme)       │
 └──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
+│
+▼
 ┌─────────────────────────────────────────────────────────────┐
-│             Business Logic / Manager Layer                  │
-│ (GuestManager, RoomManager, ReservationManager,             │
-│            BillingManager, ReportGenerator)                 │
+│       Business Logic / Manager Layer         │
+│ (GuestManager, RoomManager, ReservationManager,       │
+│      BillingManager, ReportGenerator)         │
 └──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
+│
+▼
 ┌─────────────────────────────────────────────────────────────┐
-│                   Domain Model Layer                        │
-│   (Guest, Room, Reservation, Bill, ServiceCharge, Enums)   │
+│          Domain Model Layer            │
+│  (Guest, Room, Reservation, Bill, ServiceCharge, Enums)  │
 └──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
+│
+▼
 ┌─────────────────────────────────────────────────────────────┐
-│                  Storage / Persistence Layer                │
-│    (FileManager -> Binary File Serialization in data/*.dat) │
+│         Storage / Persistence Layer        │
+│  (FileManager -> Binary File Serialization in data/.dat) │
 └─────────────────────────────────────────────────────────────┘
 ```
-
 ---
 
-## 7. DESIGN DIAGRAMS
-
-*(Diagram source files available in `diagrams/` directory)*
-
-### Use Case Diagram (`diagrams/use-case.md`)
-- Receptionist / Staff: Register Guest, Search Guest, Check Availability, Create Reservation, Process Check-In, Process Check-Out, Add Service Charges, Record Payment.
-- Administrator: Manage Room Inventory, View Analytics & Revenue Reports.
-
-### Process Workflow Diagram (`diagrams/workflow.md`)
-- Staff opens app -> Dashboard -> Select Module -> Input Validation -> Process Business Logic -> Update Storage -> Display Output.
-
-### Sequence Diagram (`diagrams/sequence.md`)
-- Details the checkout sequence: `RoomReservationPanel` -> `ReservationManager` -> `BillingManager` -> `FileManager` -> `bills.dat` -> Invoice Summary view.
-
-### Class Diagram (`diagrams/class-diagram.md`)
-- Demarcates relationships between `Guest`, `Room`, `Reservation`, `Bill`, `ServiceCharge`, and state enums.
-
+# 7. Design Diagrams:
+(Diagram source files available in diagrams/ directory)
+Use Case Diagram (`diagrams/use-case.md`):
+- Receptionist: Register Guest, Search Guest, Check Availability, Create Reservations, Process Check-In, Process Check-Out, Add Service Charges, Record Payment
+- Administrative: Manage Room Inventory, View Analytics & Revenue Reports
+Process Workflow Diagram (`diagrams/workflow.md):
+- Staff opens app -> Dashboard -> Select Module -> Input Validation -> Process Business Logic -> Update Storage -> Display Output
+Sequence Diagram (`diagrams/sequence.md`):
+- Details checkout sequence: RoomReservationPanel -> ReservationManager -> BillingManager -> FileManager -> bills.dat -> Invoice Summary view
+Class Diagram (`diagrams/class-diagram.md`):
+- Show relationships between Guest, Room, Reservation, Bill, ServiceCharge and state enums.
+---
+## 8. Design Decisions
+Selected Java Swing to provide GUI desktop experience without requiring additional setup of web servers or browser runtime configurations.
+Opted for binary file serialization instead of a database server so that evaluators can also duplicate the repository and run the application without installing any additional software like MySQL.
+Built a Pure Java Executable Test Suite (`TestRunner.java`) that can be tested directly on any standard JDK installation without external JUnit JAR classpath dependencies.
 ---
 
-## 8. DESIGN DECISIONS & RATIONALE
-
-1. **Java Swing over Web Framework**: Selected Java Swing to satisfy desktop GUI requirements without requiring external web servers or browser runtime configurations.
-2. **Binary File Serialization over Database Server**: Chosen local file serialization (`data/*.dat`) so evaluators can clone and run the repository instantly without installing or configuring external database servers like MySQL.
-3. **Pure Java Executable Test Suite**: Built `TestRunner.java` to allow command-line test execution on any standard JDK installation without requiring external JUnit JAR classpath dependencies.
-
+## 9. Implementation Details
+Language: Java (JDK 11+)
+GUI Toolkit: Java Swing (`JFrame`, `JTabbedPane`, `JTable`, `CardLayout`, `GridBagLayout`, `JOptionPane`)
+Algorithmic Rules
+Date Overlap Check: start1 < end2 && start2 < end1
+Tax Calculation: Tax = Subtotal 0.12
+Grand Total: GrandTotal = Subtotal + Tax.
+---
+## 10. Screenshots & Results
+1. Dashboard Panel: Operational cards for Rooms (Total,Available, Occupied), Registered Guests, Revenue. Collected.
+2. Guest Management Forms: Panels for registering guest, searching multi-field queries, updating and deleting guest profiles
+3. Room and Reservation Management: Tabs showing Room Inventory and a frm for reservation booking process with date availability checks
+4. Billing & Invoicing: Detailed panel for itemized room and service charges, 12% tax calculation and payment recording
+5. Reporting and Analytics Table: Details around operational summry of total rooms, occupancy percentage, active bookings, revenue tracking
 ---
 
-## 9. IMPLEMENTATION DETAILS
 
-* **Language**: Java (JDK 11+)
-* **GUI Toolkit**: Java Swing (`JFrame`, `JTabbedPane`, `JTable`, `CardLayout`, `GridBagLayout`, `JOptionPane`).
-* **Key Algorithmic Rules**:
-  * Date Overlap Check: `start1 < end2 && start2 < end1`
-  * Tax Calculation: `Tax = Subtotal * 0.12`
-  * Grand Total: `GrandTotal = Subtotal + Tax`
-
+## 11. Testing Approach
+A standalone test suite (`tests/TestRunner.java`) performs autopmatic assertions for:
+1. Regex validation of Email field and Phone fiel
+2. Guest ID auto-generation rule and duplicate ID rejections
+3. Room creation process and inventory status management
+4. Reservation check-out date >check-in date validation
+5. Double-booking overlap detection,
+6. Check-in and check-out process state machine transitions
+7. Subtotal, 12% tax and Grand Total validation rules,
+8. Operational statistics aggregation tests.
+---
+## 12. Challenges Faced
+Challenge: Double-booking reservations for the same room when multiple reservations are created.
+Solution: Implemented mathematical interval overlap detection in `ReservationManager.isRoomAvailable()`.
+Challenge: Ensuring that persistent storage mechanism works out-of-the-box for clean installations
+Solution: Designed `FileManager` to automatically create `data/` directory and seed realistic data on first execution.
+---
+## 13. Learnings and Takeaways
+Practical application of Object Oriented Programming (Encapsulation, Modularization, Sepaation of Concerns)
+Implementation of Swing UI layout managers for eg `CardLayout`, `GridBagLayout`, `BorderLayout`
+Design of robust business logic layers decoupled from presentation graphics.
 ---
 
-## 10. SCREENSHOTS & RESULTS
+## 14. Future Enhancements
+Export itemized invoices to PDF for client download
+Implement JFreeChart for displayiiing bar charts around monthly revenue trends
+Implement JDBC for connecting to enterprise-grade MySQL database for producction use....
+--
+## 15. References
+1. Oracle Java 11 SE Documentation and was Swing API Specification.!
+2. VITyarthi Prject Instruction & Evaluation Guidellines....
 
-1. **Dashboard Panel**: Displays real-time hotel operational overview cards (Total Rooms, Available, Occupied, Registered Guests, Collected Revenue).
-2. **Guest Management**: Forms for registering guests, searching by multi-field queries, updating details, and deleting profiles.
-3. **Room & Reservation Management**: Tabbed interface containing room inventory grid and reservation booking form with date availability checking.
-4. **Billing & Invoicing**: Detail panel rendering itemized room and service charges, 12% GST tax computation, and payment recording.
-5. **Reporting & Analytics**: Operational summary table detailing total rooms, occupancy percentage, active bookings, and financial metrics.
+## 16. Details:
 
----
 
-## 11. TESTING APPROACH
-
-A standalone test suite (`tests/TestRunner.java`) executes automated assertions covering:
-1. Regex validation for emails and phone numbers.
-2. Guest ID auto-generation and duplicate rejection.
-3. Room creation and inventory status updates.
-4. Reservation check-out date > check-in date enforcement.
-5. Double-booking prevention during overlapping date intervals.
-6. Check-In and Check-Out state machine transitions.
-7. Subtotal, 12% GST tax, and grand total accuracy.
-8. Operational statistics aggregation.
-
----
-
-## 12. CHALLENGES FACED & SOLUTIONS
-
-* **Challenge**: Preventing double-booking when multiple reservations are created for the same room.
-  * **Solution**: Implemented mathematical interval overlap checking in `ReservationManager.isRoomAvailable()`.
-* **Challenge**: Ensuring persistent storage works out-of-the-box on clean installations.
-  * **Solution**: Designed `FileManager` to automatically create the `data/` directory and seed realistic sample data on first execution.
-
----
-
-## 13. LEARNINGS & KEY TAKEAWAYS
-
-* Practical application of Object-Oriented Programming (Encapsulation, Modularization, Separation of Concerns).
-* Implementation of Swing UI layout managers (`CardLayout`, `GridBagLayout`, `BorderLayout`).
-* Designing robust business logic layers decoupled from presentation graphics.
-
----
-
-## 14. FUTURE ENHANCEMENTS
-
-* Exporting generated invoices to downloadable PDF format.
-* JFreeChart integration for visual monthly revenue bar charts.
-* JDBC database connector for enterprise MySQL server integration.
-
----
-
-## 15. REFERENCES
-
-1. Oracle Java 11 SE Documentation & Swing API Specification.
-2. VITyarthi Project Instruction & Evaluation Guidelines.
+Name: Shivesh Jha
+Course: Programming in java
+Faculty: Sharmila Joseph Ma'am
+College: VIT Bhopal
