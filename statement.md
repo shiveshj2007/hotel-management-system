@@ -45,7 +45,7 @@ To overcome these errors the Hotel Management System provides a desktop GUI-base
 
 ### What the system covers:
 
-Module 1 — Guest Management: Complete CRUD (Add, View, Search,Update, Delete) of hotel guests with phone (10–12 digits) and email regex validation.
+Module 1 — Guest Management: Complete CRUD (Add, View, Search,Update, Delete) of hotel guests with phone (10–12 digits) and email regex validations...
 
 Module 2 — Room & Reservation Management: Classification of room (Single, Double, Deluxe, Suite) pricing, capacity and operational status (Available, Reserved, Occupied, Maintenance). Includes booking creation (double-booking overlap prevention), check-in, check-out and cancellation state transitions.
 
@@ -57,11 +57,11 @@ Data Persistence: Binary file serialization storing all records persistently in 
 
 ### What the system does not cove Out Of Scope):
 
-Remote cloud database servers (MySQL/PostgreSQL) — designed as a standalone offline desktop application requiring no external database setup.
+Remote cloud database servers (MySQL/PostgreSQL)  designed as a standalone offline desktop application requiring no external database setup.
 
-Online payment gateway integration (e.g. Stripe/Razorpay) — payment modes are recorded locally.
+Online payment gateway integration (e.g. Stripe/Razorpay)  payment modes are recorded locally.
 
-Multi-hotel enterprise chain synchronization — focused on single-property hoteloperations.
+Multi-hotel enterprise chain synchronization focused on singleproperty hoteloperations.
 
 ---
 
@@ -73,7 +73,7 @@ Multi-hotel enterprise chain synchronization — focused on single-property hote
 
 1. Receptionist / Front-Desk Staff: Handles guest registrations,room searches, booking checkout, itemized service charge additions and check-out processing.
 
-2. Hotel Manager /Administrator: Oversees room inventory settings, inspects financial billing records and analyzes revenue/occupancy statistical reports.
+2. Hotel Manager /Administrator: Oversees room inventory settings, inspects financial billing records in it amd also analyzes revenue/occupancy statistical reports.
 
 ---
 
@@ -89,7 +89,7 @@ Multi-hotel enterprise chain synchronization — focused on single-property hote
 
 - Mandatory fields and regex format validation for phone and email.
 
-- Real-time search across guest IDs, names, phone numbers and email addresses.
+- Real-time search across guest IDs, names, phone numbers and email addressess
 
 - Confirmation dialogs before destructive operations (Delete Guest).
 
@@ -97,14 +97,14 @@ Multi-hotel enterprise chain synchronization — focused on single-property hote
 
 ### Module 2: Room & Reservation Management
 
-- Room Management: Room inventory grid, room type configuration Single, Double, Deluxe, Suite), price per night, capacity and status updates (AVAILABLE, RESERVED, OCCUPIED, MAINTENANC).
+- Room Management: Room inventory grid, room type configuration for eg it could be single, Double, Deluxe, Suite), price per night, capacity and status updates (AVAILABLE, RESERVED, OCCUPIED, MAINTENANC).
 
-- Reservation Management: Links Guest -> Room -> Check-In Date -> Check-Out Date. Date range validation (Check-Out > Check-In), overlap check prohibiting double-booking of active reservations, Check-In state transition (Room -> OCCUPIED), and Check-Out transition (Room -> AVAILABLE).
+- Reservation Management: Links Guest -> Room -> Check-In Date -> Check-Out Date. Date range validation (Check-Out > Check-In), overlaps checked prohibiting double booking of active reservations, Check-In state transition (Room -> OCCUPIED), and Check-Out transition (Room -> AVAILABLE).
 
 
 
 ### Module 3: Billing & Reporting
 
-- Billing: Itemized invoice generation upon checkout, room charge calculations, itemized service charge additions, subtotaling, 12% GST tax computation (Bill.DEFAULTTAXRATE = 0.12), payment settlement recording and invoice history viewing.
+- Billing: Itemized invoice generation upon checkout, room charge calculations, itemized service charge additions, subtotaling, 12% GST tax computation (Bill.DEFAULTTAXRATE == 0.12), payment settlement recording and invoice history viewing.
 
 - Reporting: Analytical dashboard presenting total rooms, available rooms, occupied rooms, occupancy rate percentage, total reservations, collected revenue and pending balances.
