@@ -7,22 +7,20 @@ tax calculation, double-booking overlap validation, and real time operational an
 ---
 
 ## Contents
-- [Project Overview](#-project-overview)
+ [Project Overview](#-project-overview)
 - [Problem Being Solved](#-problem-being-solved)
 - [Objectives](#-objectives)
 - [Major Functional Modules](#-major-functional-modules)
 - [1. Guest Management](#1-guest-management)
-- [2. Room & Reservation Management](#2-room--reservation-management)
+ [2. Room & Reservation Management](#2-room--reservation-management)
 - [3. Billing & Reporting](#3-billing--reporting)
 - [Features](#-features)
-- [Technologies Used](#-technologies-used)
+- [Technologies Used](#technologies-used)
 - [System Requirements](#-system-requirements)
 - [Project Structure](#-project-structure)
-- [Architecture](#-architecture)
-- [Installation & Setup](#-installation--setup)
-- [Compilation](#-compilation)
-- [Execution](#-execution)
-- [Testing](#-testing)
+- [Architecture](#architecture)
+
+- [Testing](#testing)
 - [Usage Guide](#-usage-guide)
 - [Data Storage](#-data-storage)
 - [Validation and Error Handling](#-validation-and-error-handling)
@@ -57,18 +55,21 @@ The system provides a desktop application addressing these issues through automa
 
 ### 1. Guest Management
 Guest Registration: Add guest with auto generated unique ID (`GST-1001`
-Regex Input Validation: Validate phone numbers (10-12 digits) and email formatti
+Regex Input Validation: Validate phone numbers (10-12 digits) and email formatting
 Search & Filter: Real time multi-field search across guest IDs, names, phones, and emails.
 Profile Controls: 
 Update guest details and delete profiles with confirmation dialog.
 
 ### 2. Room & Reservation Management
 Room Inventory: Manage room numbers, types (Single, Double, Deluxe, Suite), pricing, capacity, and operational status (Available, Reserved, Occupied, Maintenance).
-Reservation Booking: Connect Guest -> Room -> Check-In Date -> Check-Out Date.
-Double-Booking Prevention: Date interval overlap validation for active reservations.
+Reservation Booking: Connect Guve reservations.
 Lifecycle State Machine: Transition reservation and room statuses through Check-In, Check-Out, and Cancellation workflows.
-### 3. Billing & Reporting
-Itemized Invoicing: Auto-generate invoice combining room charges (`Nights Price/Night` and itemized additional service charges (Food, Laundry, Spa).
+
+
+### 3. Billing & Reporting:
+
+
+Itemized Invoicing: Auto-generates invoive in it which automaticllaly generatted invoices (`Nights Price/Night` and itemized additional service charges (Food, Laundry, Spa).
 Tax Calculation: Configure 12% GST tax rate application (`Subtotal 0.12`) and calculate Grand Total (`Subtotal + Tax`).
 Payment Settlement: Record payment mode (Cash, Credit Card, UPI) and update invoice status to `PAID`.
 Analytical Dashboard: Visual dashboard cards for total rooms, occupancy percentage, active reservations, total revenue collected, and pending receivables.
@@ -82,9 +83,9 @@ Analytical Dashboard: Visual dashboard cards for total rooms, occupancy percenta
  Testing: Standalone Executable Java Test Suite (`tests/TestRunner.java)
 ---
 ## 💻 System Requirements
-- Operating System: Windows 10/11, macOS, or Linux
+- Operating System: Windows mac and linux
 - Java Development Kit (JDK): JDK 11 or higher
-- RAM: 2 GB minimum (4 GB recommended)
+- RAM: 2 GB minimum and  (4 GB recommended or hgher
 - Disk Space: 50 MB available space
 ---
 
@@ -170,15 +171,6 @@ java -version
 javac -version
 ```
 ---
-## 🔨 Compilation
-To compile all Java source files into the `out/` directory:
-### Windows (PowerShell):
-```powershell
-powershell -Command "$files = Get-ChildItem -Path src,tests -Filter .java -Recurse | Select-Object -ExpandProperty FullName; javac -d out $files"
-```
-### Windows (CMD):
-```cmd
-javac -d out src\hotelmanagement\Main.java src\hotelmanagement\model\.java src\hotelmanagement\manager\.java src\hotelmanagement\gui\.java src\hotelmanagement\storage\.java src\hotelmanagement\util\.java tests\.java
 ```
 ---
 ## 🚀 Execution
@@ -188,7 +180,7 @@ java -cp out hotelmanagement.Main
 ```
 ---
 ## 🧪 Testing
-Run the automated test runner directly from the terminal:
+Run the automated test runner directly from the terminal:-
 ```cmd
 java -cp out tests.TestRunner
 ```
@@ -203,7 +195,7 @@ The test runner validates:
 8. Operational statistics aggregation.
 ---
 ## 📖 Usage Guide
-1. Dashboard Panel: Shows high level statistics (Total Rooms, available, occupied, T0TAL Revenue).
+1. Dashboard Panel: Shows high level statss (Total Rooms, available, occupied, T0TAL Revenue).
 2. Guest Management:
 - Fill out the guest details form and click Add Guest.
 - Use the search bar to filter guests by name, ID, or phone.
@@ -217,8 +209,8 @@ The test runner validates:
 
 
 4. Billing & Reporting:
-- Billing Tab: Select an invoice generated at check-out, click + Add Additional Service Charge to add itemized charges, and click Record Payment & Settle Invoice to complete payment.
-- Reporting Tab: View detailed hotel metrics and click Refresh Real-Time Report.
+- Billing Tab: Select an invoice generated at check-out, click + Add Additional Service Charge in it to add itemized charges and also click Record Payment & Settle Invoice to complete payment which really helpful for it.
+- Reporting Tab: View detailed hotel metrics and click Refresh RealTime Report.
 ---
 ## 💾 Data Storage
 All data is storedin binary serialized format insidehe `data/` folder:
@@ -239,7 +231,7 @@ If the `data/` folder is deleted or missing, the system auto creates it and popu
 ---
 ## 🔮 Future Enhancements
 - Exporting generated invoices to downloadable PD format.
-- JFreeChart integration for visual monthly revenue bar charts.
+- JFreeChart integration for visual amd monthly revenue bar charts....
 - JDBCdatabaseconnector for enterprise MySQL server integration
 ---
 ## 👤 Authors
