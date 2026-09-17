@@ -94,8 +94,8 @@ Analytical Dashboard: Visual dashboard cards for total rooms, occupancy percenta
 hotel-management-system/
 ├── src/
 │ └── hotelmanageent/
-│  ├── Main.java      # Entry point, launches MainFrame GUI
-│  ├── model/       # Encapsulated Data Models
+│  ├── Main.java    
+│  ├── model/      
 │  │ ├── Guest.java
 │  │ ├── Room.java
 │  │ ├── RoomType.java (Enum)
@@ -105,43 +105,43 @@ hotel-management-system/
 │  │ ├── ServiceCharge.java
 │  │ ├── Bill.java
 │  │ └── PaymentStatus.java (Enum)
-│  ├── manager/       # Business Logic Layer
+│  ├── manager/     
 │  │ ├── GuestManager.java
 │  │ ├── RoomManager.java
 │  │ ├── ReservationManager.java
 │  │ ├── BillingManager.java
 │  │ └── ReportGenerator.java
-│  ├── gui/        # Swing GUI Layer
-│  │ ├── MainFrame.java    # Main Window with navigation bar
-│  │ ├── DashboardPanel.java   # Metric overview panel
-│  │ ├── GuestPanel.java    # Module 1 GUI
-│  │ ├── RoomReservationPanel.java # Module 2 GUI
-│  │ ├── BillingPanel.java   # Module 3A GUI
-│  │ ├── ReportPanel.java    # Module 3B GUI
-│  │ └── UITheme.java     # Theme palette & styling constants
+│  ├── gui/      
+│  │ ├── MainFrame.java
+│  │ ├── DashboardPanel.java   
+│  │ ├── GuestPanel.java   
+│  │ ├── RoomReservationPanel.jav
+│  │ ├── BillingPanel.java   
+│  │ ├── ReportPanel.java  
+│  │ └── UITheme.java     
 │  ├── storage/
-│  │ └── FileManager.java    # Persistent binary I/O handler
+│  │ └── FileManager.java 
 │  └── util/
-│   ├── ValidationUtil.java   # Regex input validation
-│   └── DateUtil.java    # Date parsing & overlap logic
-├── data/         # Local File Persistence (Auto-seeded)
+│   ├── ValidationUtil.java 
+│   └── DateUtil.java
+├── data/     
 │ ├── guests.dat
 │ ├── rooms.dat
 │ ├── reservations.dat
 │ └── bills.dat
-├── tests/         # Standalone Test Suite
-│ ├── BusinessLogicTest.java    # Unit test cases
-│ └── TestRunner.java      # Executable CLI test runner
-├── diagrams/        # Architecture & System Diagrams(Mermaid)
+├── tests/         
+│ ├── BusinessLogicTest.java    
+│ └── TestRunner.java     
+├── diagrams/       
 │ ├── architecture.md
 │ ├── workflow.md
 │ ├── use-case.md
 │ ├── class-diagram.md
 │ └── sequence.md
 ├── report/
-│ └── PROJECT_REPORT.md     # 15-Section Academic Report
-├── README.md        # Project Documentation
-└── statement.md        # Problem Statement & Scope
+│ └── PROJECT_REPORT.md    
+├── README.md       
+└── statement.md        
 ```
 ---
 ## 🏗️ Architecture
